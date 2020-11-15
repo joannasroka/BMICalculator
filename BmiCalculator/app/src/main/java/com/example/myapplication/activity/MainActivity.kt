@@ -16,6 +16,7 @@ import com.example.myapplication.calculation.Unit
 import com.example.myapplication.databinding.ActivityMainBinding
 import com.example.myapplication.repository.BmiData
 import com.example.myapplication.repository.BmiRepository
+import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -137,6 +138,19 @@ class MainActivity : AppCompatActivity() {
         bmiRepository.saveDate(bmiData)
     }
 
+    private fun checkUserInputs(weight: Double, height: Double): Boolean {
+        var inputsCorrectness = true
+        if (weight == 0.0) {
+            weightET.error = getString(R.string.weight_zero)
+            inputsCorrectness = false
+        }
+        if (height == 0.0) {
+            heightET.error = getString(R.string.height_zero)
+            inputsCorrectness = false
+        }
+        return inputsCorrectness
+    }
+
     fun count(view: View) {
         binding.apply {
             if (heightET.text.isBlank()) {
@@ -150,16 +164,19 @@ class MainActivity : AppCompatActivity() {
                     BmiCalculator()
                 val weight = weightET.text.toString().toDouble()
                 val height = heightET.text.toString().toDouble()
-                result = bmiCalculator.count(
-                    weightET.text.toString().toDouble(), heightET.text.toString()
-                        .toDouble(), unitSwitch
-                )
+                if (checkUserInputs(weight, height)) {
+                    result = bmiCalculator.count(
+                        weightET.text.toString().toDouble(), heightET.text.toString()
+                            .toDouble(), unitSwitch
+                    )
 
-                bmiTV.text = result.toString()
-                bmiCategoryResult = bmiCalculator.interpretResult(result)
-                bmiCategory = bmiCategoryResult
+                    bmiTV.text = result.toString()
+                    bmiCategoryResult = bmiCalculator.interpretResult(result)
+                    bmiCategory = bmiCategoryResult
 
-                addToHistory(result, weight, height)
+                    addToHistory(result, weight, height)
+
+                }
             }
         }
     }

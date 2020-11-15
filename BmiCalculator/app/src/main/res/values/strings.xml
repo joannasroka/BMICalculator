@@ -9,6 +9,8 @@
     <string name="empty_text"> </string>
     <string name="height_is_empty">Please provide height value.</string>
     <string name="weight_is_empty">Please provide weight value.</string>
+    <string name="weight_zero">Weight cannot be equal to 0.</string>
+    <string name="height_zero">Height cannot be equal to 0.</string>
     <string name="kg_cm">kg/cm</string>
     <string name="lb_in">lb/in</string>
     <string name="unit_kg">kg</string>

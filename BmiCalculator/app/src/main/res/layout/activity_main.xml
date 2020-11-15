@@ -39,14 +39,14 @@
             android:orientation="horizontal"
             android:textColor="@color/themeColorFirst"
             app:background="@color/themeColorFourth"
-            app:layout_constraintGuide_begin="365dp" />
+            app:layout_constraintGuide_begin="300dp" />
 
         <TextView
             android:id="@+id/weightTV"
             android:layout_width="0dp"
             android:layout_height="20dp"
             android:layout_marginStart="@dimen/margin"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginBottom="@dimen/margin_distance"
             android:text="@{unit == Unit.KG_CM ? @string/weight_kg : @string/weight_lb}"
             android:textColor="@color/themeColorFourth"
@@ -61,6 +61,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="@dimen/margin"
             android:ems="10"
             android:inputType="numberDecimal"
@@ -93,7 +94,7 @@
             android:layout_height="20dp"
             android:layout_marginStart="@dimen/margin"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="@dimen/margin_distance"
+            android:layout_marginBottom="8dp"
             android:text="@{unit == Unit.KG_CM ? @string/height_cm : @string/height_in}"
             android:textColor="@color/themeColorFourth"
             app:layout_constraintBottom_toTopOf="@+id/heightET"
