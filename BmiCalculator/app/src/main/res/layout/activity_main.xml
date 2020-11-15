@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.example.myapplication.calculation.Unit" />
+
+        <import type="com.example.myapplication.calculation.BmiCategory" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+
+        <variable
+            name="unit"
+            type="com.example.myapplication.calculation.Unit" />
+
+        <variable
+            name="bmiResult"
+            type="Double" />
+
+        <variable
+            name="bmiCategory"
+            type="com.example.myapplication.calculation.BmiCategory" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/themeColorSecond"
+        tools:context=".activity.MainActivity">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:textColor="@color/themeColorFirst"
+            app:background="@color/themeColorFourth"
+            app:layout_constraintGuide_begin="365dp" />
+
+        <TextView
+            android:id="@+id/weightTV"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="@dimen/margin_distance"
+            android:text="@{unit == Unit.KG_CM ? @string/weight_kg : @string/weight_lb}"
+            android:textColor="@color/themeColorFourth"
+            app:layout_constraintBottom_toTopOf="@+id/weightET"
+            app:layout_constraintEnd_toEndOf="@id/heightET"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/menu" />
+
+        <EditText
+            android:id="@+id/weightET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:textColor="@color/themeColorFourth"
+            app:layout_constraintBottom_toTopOf="@+id/heightET"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/heightET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:textColor="@color/themeColorFourth"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weightET" />
+
+        <TextView
+            android:id="@+id/heightTV"
+
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="@dimen/margin_distance"
+            android:text="@{unit == Unit.KG_CM ? @string/height_cm : @string/height_in}"
+            android:textColor="@color/themeColorFourth"
+            app:layout_constraintBottom_toTopOf="@+id/heightET"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/weightET"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <Button
+            android:id="@+id/countBTN"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin"
+            android:layout_marginEnd="@dimen/margin"
+            android:background="@color/themeColorThird"
+            android:onClick="count"
+            android:text="@string/count_bmi"
+            android:textColor="@color/themeColorFirst"
+            app:layout_constraintBottom_toTopOf="@+id/guideline"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/heightET" />
+
+        <TextView
+            android:id="@+id/bmiTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/empty_value"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@{ContextCompat.getColor(context, bmiCategory.color)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/countBTN"
+            app:layout_constraintVertical_bias="0.341" />
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/menu"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:background="@color/themeColorFourth"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_constraintBottom_toTopOf="@+id/weightET"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:popupTheme="@style/Theme.AppCompat.NoActionBar"
+            app:titleTextColor="@color/themeColorFirst" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

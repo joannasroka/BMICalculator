@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">BMI Calculator</string>
+    <string name="weight_kg">Weight [kg]:</string>
+    <string name="height_cm">Height [cm]:</string>
+    <string name="weight_lb">Weight [lb]:</string>
+    <string name="height_in">Height [in]:</string>
+    <string name="count_bmi">Count BMI</string>
+    <string name="empty_value">0.00</string>
+    <string name="empty_text"> </string>
+    <string name="height_is_empty">Please provide height value.</string>
+    <string name="weight_is_empty">Please provide weight value.</string>
+    <string name="kg_cm">kg/cm</string>
+    <string name="lb_in">lb/in</string>
+    <string name="unit_kg">kg</string>
+    <string name="unit_lb">lb</string>
+    <string name="unit_cm">cm</string>
+    <string name="unit_in">in</string>
+    <string name="history">History</string>
+    <string name="change_units">Change units</string>
+    <string name="your_bmi_is">Your BMI is: </string>
+    <string name="empty_history">Your BMI history is empty.</string>
+    <string name="what_is_BMI">Body mass index, or BMI, is used to determine whether you are in a healthy weight range for your height.</string>
+    <string name="underweight">You are underweight for your height. It is important to aim to keep within your healthy weight range. Being in the healthy weight range will improve your body is ability to fight off infection or illness.</string>
+    <string name="normal">You are a healthy weight for your height. Aim to keep within the healthy weight range by enjoying a healthy, well-balanced diet and exercising regularly.</string>
+    <string name="overweight">Your BMI is considered overweight. Being overweight increases your risk of developing coronary heart disease, as well as other health conditions. </string>
+    <string name="obese">Your BMI is considered obese. As your BMI increases so does your risk of developing coronary heart disease, as well as other heath conditions. It is important that you take steps to reduce your weight.</string>
+    <string name="extremely_obese">Your BMI is considered extremely obese. Obesity is an ever-growing health problem. Morbid obesity is a serious health condition that results from an abnormally high body mass index.</string>
+
+</resources>

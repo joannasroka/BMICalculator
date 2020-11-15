@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1E040D</color>
+    <color name="underweight">#001CB8</color>
+    <color name="normal">#009688</color>
+    <color name="overweight">#FF9800</color>
+    <color name="obese">#FF5722</color>
+    <color name="extremelyObese">#73053C</color>
+    <color name="themeColorFirst">#fff0f0</color>
+    <color name="themeColorSecond">#ebd4d4</color>
+    <color name="themeColorThird">#835858</color>
+    <color name="themeColorFourth">#463333</color>
+</resources>
